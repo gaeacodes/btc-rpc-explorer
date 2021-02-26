@@ -122,8 +122,9 @@ router.get("/node-status", function(req, res, next) {
 
 		coreApi.getNetworkInfo().then(function(getnetworkinfo) {
 			res.locals.getnetworkinfo = getnetworkinfo;
-
-			coreApi.getUptimeSeconds().then(function(uptimeSeconds) {
+			res.render("node-status");
+			next();
+			/*coreApi.getUptimeSeconds().then(function(uptimeSeconds) {
 				res.locals.uptimeSeconds = uptimeSeconds;
 
 				coreApi.getNetTotals().then(function(getnettotals) {
@@ -146,7 +147,7 @@ router.get("/node-status", function(req, res, next) {
 				res.render("node-status");
 
 				next();
-			});
+			});*/
 		}).catch(function(err) {
 			res.locals.userMessage = "Error getting node status: (id=2), err=" + err;
 

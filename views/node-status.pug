@@ -105,16 +105,6 @@ block content
 							tr
 								td(class="properties-header") Network Traffic
 								td(class="monospace")
-									- var downData = utils.formatLargeNumber(getnettotals.totalbytesrecv, 2);
-									- var downRateData = utils.formatLargeNumber(getnettotals.totalbytesrecv / uptimeSeconds, 2);
-									- var upData = utils.formatLargeNumber(getnettotals.totalbytessent, 2);
-									- var upRateData = utils.formatLargeNumber(getnettotals.totalbytessent / uptimeSeconds, 2);
-
-									span Total Download: #{downData[0]} #{downData[1].abbreviation}B
-									span(class="text-muted")  (avg #{downRateData[0]} #{downRateData[1].abbreviation}B/s)
-									br
-									span Total Upload: #{upData[0]} #{upData[1].abbreviation}B
-									span(class="text-muted")  (avg #{upRateData[0]} #{upRateData[1].abbreviation}B/s)
 
 							if (global.getnetworkinfo.networks)
 								tr
