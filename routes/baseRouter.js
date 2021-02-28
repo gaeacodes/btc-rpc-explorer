@@ -127,7 +127,7 @@ router.get("/", function(req, res, next) {
 			promises.push(coreApi.getChainTxStats(getblockchaininfo.blocks - 1));
 		}
 
-		coreApi.getBlocksByHeight(blockHeights).then(function(latestBlocks) {
+		/*coreApi.getBlocksByHeight(blockHeights).then(function(latestBlocks) {
 			res.locals.latestBlocks = latestBlocks;
 			res.locals.blocksUntilDifficultyAdjustment = ((res.locals.difficultyPeriod + 1) * coinConfig.difficultyAdjustmentBlockCount) - latestBlocks[0].height;
 
@@ -195,7 +195,9 @@ router.get("/", function(req, res, next) {
 
 				next();
 			});
-		});
+		});*/
+		res.render("index");
+		next();
 	}).catch(function(err) {
 		res.locals.userMessage = "Error loading recent blocks: " + err;
 
@@ -211,8 +213,10 @@ router.get("/node-status", function(req, res, next) {
 
 		coreApi.getNetworkInfo().then(function(getnetworkinfo) {
 			res.locals.getnetworkinfo = getnetworkinfo;
+			res.render("node-status");
 
-			coreApi.getUptimeSeconds().then(function(uptimeSeconds) {
+			next();
+			/*coreApi.getUptimeSeconds().then(function(uptimeSeconds) {
 				res.locals.uptimeSeconds = uptimeSeconds;
 
 				coreApi.getNetTotals().then(function(getnettotals) {
@@ -235,7 +239,7 @@ router.get("/node-status", function(req, res, next) {
 				res.render("node-status");
 
 				next();
-			});
+			});*/
 		}).catch(function(err) {
 			res.locals.userMessage = "Error getting node status: (id=2), err=" + err;
 

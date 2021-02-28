@@ -133,7 +133,7 @@ block content
 							div.row
 								div.summary-table-label Network Traffic
 								div.summary-table-content.text-monospace
-									- var downData = utils.formatLargeNumber(getnettotals.totalbytesrecv, 2);
+								//-	- var downData = utils.formatLargeNumber(getnettotals.totalbytesrecv, 2);
 									- var downRateData = utils.formatLargeNumber(getnettotals.totalbytesrecv / uptimeSeconds, 2);
 									- var upData = utils.formatLargeNumber(getnettotals.totalbytessent, 2);
 									- var upRateData = utils.formatLargeNumber(getnettotals.totalbytessent / uptimeSeconds, 2);
